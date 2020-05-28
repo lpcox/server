@@ -1,6 +1,6 @@
 # Contributing Guidelines
 
-Welcome to CovidShield. Thank you for considering contributing to COVID Shield!
+Welcome, and thank you for considering contributing to COVID Shield!
 
 We’d love to get your issues (if you find any bugs) and PRs (if you have any fixes)!
 
@@ -9,7 +9,7 @@ We’d love to get your issues (if you find any bugs) and PRs (if you have any f
 - [Contributing](#contributing)
   - [Contributing Documentation](#contributing-documentation)
   - [Contributing Code](#contributing-code)
-- [Running CovidShield](#running-covidshield)
+- [Running COVID Shield](#running-covid-shield)
   - [Using Docker-Compose](#using-docker-compose)
   - [Using Dev](#using-dev)
   - [From Scratch](#from-scratch)
@@ -44,7 +44,7 @@ as you'd expect.
 Once you're happy with your changes, please fork the repository and push your
 code to your fork, then open a PR against this repository.
 
-## Running CovidShield
+## Running COVID Shield
 
 ### Using Docker-Compose
 
@@ -119,7 +119,7 @@ $ make test
 
 ## Metrics and Tracing
 
-CovidShield uses [OpenTelemetry](https://github.com/open-telemetry/opentelemetry-go) to configure the metrics and tracing for the server, both the key retrieval and key submission.
+COVID Shield uses [OpenTelemetry](https://github.com/open-telemetry/opentelemetry-go) to configure the metrics and tracing for the server, both the key retrieval and key submission.
 
 ### Metrics
 
@@ -137,7 +137,7 @@ In order to use Prometheus as a metrics solution, you'll need to be running it i
 
 You can follow the instructions [here](https://prometheus.io/docs/prometheus/latest/installation/) for running Prometheus. 
 
-You will need to edit the configuration file, `prometheus.yml` to add an additional target so it actually polls the metrics coming from the CovidShield server:
+You will need to edit the configuration file, `prometheus.yml` to add an additional target so it actually polls the metrics coming from the COVID Shield server:
 
 ```
 ...
