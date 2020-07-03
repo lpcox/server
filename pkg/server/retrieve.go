@@ -79,9 +79,10 @@ func (s *retrieveServlet) retrieve(w http.ResponseWriter, r *http.Request) resul
 	currentRSIN := pb.CurrentRollingStartIntervalNumber()
 	currentDateNumber := timemath.CurrentDateNumber()
 
-	if dateNumber == currentDateNumber {
-		return s.fail(log(ctx, err), w, "request for current date", "cannot serve data for current period for privacy reasons", http.StatusNotFound)
-	} else if dateNumber > currentDateNumber {
+//	if dateNumber == currentDateNumber {
+//		return s.fail(log(ctx, err), w, "request for current date", "cannot serve data for current period for privacy reasons", http.StatusNotFound)
+	//} else 
+	if dateNumber > currentDateNumber {
 		return s.fail(log(ctx, err), w, "request for future data", "cannot request future data", http.StatusNotFound)
 	} else if dateNumber < (currentDateNumber - numberOfDaysToServe) {
 		return s.fail(log(ctx, err), w, "request for too-old data", "requested data no longer valid", http.StatusGone)
