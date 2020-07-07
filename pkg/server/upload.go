@@ -182,6 +182,7 @@ func (s *uploadServlet) upload(w http.ResponseWriter, r *http.Request) {
 }
 
 func validateKey(ctx context.Context, w http.ResponseWriter, key *pb.TemporaryExposureKey) bool {
+	/*
 	if key.GetRollingPeriod() != 144 {
 		requestError(
 			ctx, w, nil, "missing or invalid rollingPeriod",
@@ -189,7 +190,7 @@ func validateKey(ctx context.Context, w http.ResponseWriter, key *pb.TemporaryEx
 		)
 		return false
 	}
-
+	*/
 	if len(key.GetKeyData()) != 16 {
 		requestError(
 			ctx, w, nil, "invalid key data",
@@ -244,7 +245,7 @@ func validateKeys(ctx context.Context, w http.ResponseWriter, keys []*pb.Tempora
 		)
 		return false
 	}
-
+	/*
 	lastEnd := 0
 	for _, rsn := range ints {
 		if rsn < lastEnd {
@@ -256,6 +257,6 @@ func validateKeys(ctx context.Context, w http.ResponseWriter, keys []*pb.Tempora
 		}
 		lastEnd = rsn + 144
 	}
-
+	*/
 	return true
 }
