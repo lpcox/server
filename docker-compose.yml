@@ -15,10 +15,10 @@ services:
     build:
       context: .
       args:
-        branch: master
+        branch: uw-pilot
         revision: docker-compose
         component: key-retrieval
-        github_user: covidshield
+        github_user: lpcox
     ports:
       - "8001:8001"
     cap_drop:
@@ -36,10 +36,10 @@ services:
     build:
       context: .
       args:
-        branch: master
+        branch: uw-pilot
         revision: docker-compose
         component: key-submission
-        github_user: covidshield
+        github_user: lpcox
     ports:
       - "8000:8000"
     cap_drop:

@@ -40,7 +40,7 @@ WORKDIR /usr/local/bin
 # Import the user and group files from step 1
 COPY --from=builder /etc/passwd /etc/passwd
 COPY --from=builder /etc/group /etc/group
-COPY --from=builder --chown=${USER}:${USER} /go/src/github.com/covidshield/server/server /usr/local/bin/server
+COPY --from=builder --chown=${USER}:${USER} /go/src/github.com/lpcox/server/server /usr/local/bin/server
 
 USER ${USER}:${USER}
 
