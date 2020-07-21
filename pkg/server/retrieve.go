@@ -104,6 +104,6 @@ func (s *retrieveServlet) retrieve(w http.ResponseWriter, r *http.Request) resul
 	if err != nil {
 		log(ctx, err).Info("error writing response")
 	}
-	log(ctx, nil).WithField("unzipped-size", size).WithField("keys", len(keys)).Info("Wrote retrieval")
+	log(ctx, nil).WithField("unzipped-size", size).WithField("keys", len(keys)).Info("Wrote retrieval").WithField("dateNumber", dateNumber).WithField("currentDateNumber", currentDateNumber)
 	return result(struct{}{})
 }
