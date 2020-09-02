@@ -21,7 +21,7 @@ const (
 var (
 	signatureAlgorithm     = "1.2.840.10045.4.3.2" // required by protocol
 	verificationKeyVersion = "v1"
-	verificationKeyID      = "302"
+	verificationKeyID      = "310"
 	binHeader              = []byte("EK Export v1    ")
 	binHeaderLength        = 16
 )
