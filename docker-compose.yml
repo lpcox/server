@@ -27,7 +27,7 @@ services:
       - mysql
     restart: always
     environment:
-      ECDSA_KEY: XXX 
+      ECDSA_KEY: XXX
       DATABASE_URL: covidshield:covidshield@tcp(mysql)/covidshield
       RETRIEVE_HMAC_KEY: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
       METRIC_PROVIDER: ""
