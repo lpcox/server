@@ -158,6 +158,12 @@ func (s *uploadServlet) upload(w http.ResponseWriter, r *http.Request) {
 			http.StatusBadRequest, uploadError(pb.EncryptedUploadResponse_INVALID_KEYPAIR),
 		)
 		return
+	} else if err == persistence.ErrTooManyKeys {
+		requestError(
+			ctx, w, err, "not enough keys remaining",
+			http.StatusBadRequest, uploadError(pb.EncryptedUploadResponse_TOO_MANY_KEYS),
+		)
+		return
 	} else if err != nil {
 		requestError(
 			ctx, w, err, "failed to store diagnosis keys",
@@ -182,8 +188,12 @@ func (s *uploadServlet) upload(w http.ResponseWriter, r *http.Request) {
 }
 
 func validateKey(ctx context.Context, w http.ResponseWriter, key *pb.TemporaryExposureKey) bool {
+<<<<<<< HEAD
 	/*
 	if key.GetRollingPeriod() != 144 {
+=======
+	if key.GetRollingPeriod() < 1 || key.GetRollingPeriod() > 144{
+>>>>>>> a400e206b3a1cfd4b53e4c7385ef3e7cfb7dfe83
 		requestError(
 			ctx, w, nil, "missing or invalid rollingPeriod",
 			http.StatusBadRequest, uploadError(pb.EncryptedUploadResponse_INVALID_ROLLING_PERIOD),
@@ -238,9 +248,11 @@ func validateKeys(ctx context.Context, w http.ResponseWriter, keys []*pb.Tempora
 	max := ints[len(ints)-1]
 	maxEnd := max + 144
 
-	if maxEnd-min > (144 * 14) {
+	// Changed from 14 to 15 because you can have a case where you submit for the
+	// past 14 days plus part of today
+	if maxEnd-min > (144 * 15) {
 		requestError(
-			ctx, w, nil, "sequence of rollingStartIntervalNumbers exceeds 14 days",
+			ctx, w, nil, "sequence of rollingStartIntervalNumbers exceeds 15 days",
 			http.StatusBadRequest, uploadError(pb.EncryptedUploadResponse_INVALID_ROLLING_START_INTERVAL_NUMBER),
 		)
 		return false
