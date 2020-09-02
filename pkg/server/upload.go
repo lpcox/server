@@ -188,12 +188,8 @@ func (s *uploadServlet) upload(w http.ResponseWriter, r *http.Request) {
 }
 
 func validateKey(ctx context.Context, w http.ResponseWriter, key *pb.TemporaryExposureKey) bool {
-<<<<<<< HEAD
 	/*
 	if key.GetRollingPeriod() != 144 {
-=======
-	if key.GetRollingPeriod() < 1 || key.GetRollingPeriod() > 144{
->>>>>>> a400e206b3a1cfd4b53e4c7385ef3e7cfb7dfe83
 		requestError(
 			ctx, w, nil, "missing or invalid rollingPeriod",
 			http.StatusBadRequest, uploadError(pb.EncryptedUploadResponse_INVALID_ROLLING_PERIOD),
